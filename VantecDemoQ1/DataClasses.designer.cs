@@ -134,6 +134,8 @@ namespace VantecDemoQ1
 		
 		private System.Nullable<System.DateTime> _createdate;
 		
+		private string _state;
+		
     #region 可扩展性方法定义
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -192,6 +194,8 @@ namespace VantecDemoQ1
     partial void OnmodifydateChanged();
     partial void OncreatedateChanging(System.Nullable<System.DateTime> value);
     partial void OncreatedateChanged();
+    partial void OnstateChanging(string value);
+    partial void OnstateChanged();
     #endregion
 		
 		public orders()
@@ -735,6 +739,26 @@ namespace VantecDemoQ1
 					this._createdate = value;
 					this.SendPropertyChanged("createdate");
 					this.OncreatedateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", CanBeNull=false)]
+		public string state
+		{
+			get
+			{
+				return this._state;
+			}
+			set
+			{
+				if ((this._state != value))
+				{
+					this.OnstateChanging(value);
+					this.SendPropertyChanging();
+					this._state = value;
+					this.SendPropertyChanged("state");
+					this.OnstateChanged();
 				}
 			}
 		}

@@ -19,7 +19,7 @@ namespace VantecDemoQ1
                 TempOrder.frompostcode = Request["txtLoadFromAdds"];
                 TempOrder.fromadds = Request["hffromAdds"];
                 TempOrder.topostcode = Request["txtLoadToAdds"];
-                TempOrder.fromadds = Request["hftoAdds"];
+                TempOrder.toadds = Request["hftoAdds"];
                 TempOrder.packagetype = Request["inlineRadioOptions"];
                 TempOrder.packageamount = int.Parse(Request["packageNo"]);
                 TempOrder.price = int.Parse(Request["priceoutput"].Split('円')[0]);
