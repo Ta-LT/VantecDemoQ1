@@ -4,10 +4,13 @@
         radioClass: 'iradio_square-blue',
         increaseArea: '20%' /* optional */
     });
-    $(".submitorconfirm").click(function () {
-        
-        //if ($('.field-validation-error:visible').length > 0 || !$("form").valid()) {
-        //    return false;
-        //}
-    });
+    if ($("#orderState").val()) {
+        switch ($("#orderState").val()) {
+            case "2":
+                $(".order-pallet-admin").find("input").attr("readonly", "readonly");
+            case "1":
+                $(".order-pallet-client").find("input").attr("readonly", "readonly");
+                $(".order-address").find("input").attr("readonly", "readonly");
+        }
+    }
 });

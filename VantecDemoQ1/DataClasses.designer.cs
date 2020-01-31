@@ -134,7 +134,7 @@ namespace VantecDemoQ1
 		
 		private System.Nullable<System.DateTime> _createdate;
 		
-		private string _state;
+		private System.Nullable<int> _state;
 		
     #region 可扩展性方法定义
     partial void OnLoaded();
@@ -194,7 +194,7 @@ namespace VantecDemoQ1
     partial void OnmodifydateChanged();
     partial void OncreatedateChanging(System.Nullable<System.DateTime> value);
     partial void OncreatedateChanged();
-    partial void OnstateChanging(string value);
+    partial void OnstateChanging(System.Nullable<int> value);
     partial void OnstateChanged();
     #endregion
 		
@@ -743,8 +743,8 @@ namespace VantecDemoQ1
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", CanBeNull=false)]
-		public string state
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_state", DbType="Int")]
+		public System.Nullable<int> state
 		{
 			get
 			{

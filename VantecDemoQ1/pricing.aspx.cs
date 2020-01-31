@@ -23,9 +23,11 @@ namespace VantecDemoQ1
                 TempOrder.packagetype = Request["inlineRadioOptions"];
                 TempOrder.packageamount = int.Parse(Request["packageNo"]);
                 TempOrder.price = int.Parse(Request["priceoutput"].Split('円')[0]);
+                TempOrder.createdate = DateTime.Now;
 
                 DbContext.orders.InsertOnSubmit(TempOrder);
                 DbContext.SubmitChanges();
+                Response.Redirect("neworder.aspx?orderid=" + TempOrder.Id.ToString());
             }
         }
     }

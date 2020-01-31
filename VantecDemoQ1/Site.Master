@@ -103,9 +103,9 @@
                             </a>
                         </li>
                         <li class="">
-                            <a href="/Order/OrderDetail">
+                            <a href="/orders.aspx">
                                 <i class="fa fa-list-alt" aria-hidden="true"></i>
-                                <span>配達依頼</span>
+                                <span>订单列表</span>
                             </a>
                         </li>
                         <li class="">

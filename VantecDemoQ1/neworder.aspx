@@ -72,12 +72,12 @@
 
                                     </div>
                                     <div class="col-md-8">
-                                        <div class="order-pallet">
+                                        <div class="order-pallet order-pallet-client">
                                             <div class="row">
                                                 <div class="col-md-2">
                                                     <div class="order-form-group">
                                                         <label class="cut-text" style="text-overflow: inherit;">パレット数<span class="label_required">*</span></label>
-                                                        <input class="form-control input-sm quantity num-input" data-val="true" data-val-number="The field パレット数 must be a number." data-val-range="パレット数は1～1000を入力してください。" data-val-range-max="1000" data-val-range-min="1" data-val-regex="パレット数 は数値を入力してください。" data-val-regex-pattern="^[0-9]*$" data-val-required="パレット数 を入力してください。" id="packageamount" name="packageamount" type="text" value="<%= order.packageamount.ToString() %>">
+                                                        <input class="form-control input-sm quantity num-input" data-val="true" data-val-number="The field パレット数 must be a number." data-val-range="パレット数は1～1000を入力してください。" data-val-range-max="1000" data-val-range-min="1" data-val-regex="パレット数 は数値を入力してください。" data-val-regex-pattern="^[0-9]*$" data-val-required="パレット数 を入力してください。" id="packageamount" name="packageamount" type="text" value="<%= order.packageamount.ToString() %>"  readonly="readonly">
                                                         <span class="field-validation-valid" data-valmsg-for="packageamount" data-valmsg-replace="true"></span>
                                                     </div>
                                                 </div>
@@ -129,14 +129,14 @@
                                                     <div class="order-form-group">
                                                         <label class="cut-text" for="clientstartdate">集荷希望日</label>
                                                         <span class="label_required">*</span>
-                                                        <input type="date" value="<%= order.clientstartdate.HasValue ? order.clientstartdate.Value.ToString("yyyy年mm月dd日") : ""%>" autocomplete="off" class="form-control input-sm selectdatepicker" data-val="true" data-val-date="The field 集荷希望日 must be a date." data-val-required="集荷希望日 を入力してください。" id="clientstartdate" name="clientstartdate">
+                                                        <input type="date" value="<%= order.clientstartdate.HasValue ? order.clientstartdate.Value.ToString("yyyy-MM-dd") : ""%>" autocomplete="off" class="form-control input-sm selectdatepicker" data-val="true" data-val-date="The field 集荷希望日 must be a date." data-val-required="集荷希望日 を入力してください。" id="clientstartdate" name="clientstartdate">
                                                         <span class="field-validation-valid" data-valmsg-for="clientstartdate" data-valmsg-replace="true"></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="order-form-group">
                                                         <label class="cut-text" for="clientstarttime">集荷希望時間</label>
-                                                        <input class="form-control time-picker timepicker flatpickr-input" data-val="true" data-val-length="集荷希望時間 は最大10桁で入力してください。" data-val-length-max="10" id="clientstarttime" name="clientstarttime" style="padding: 5px 12px; height: 30px;" type="time" value="<%= order.clientstartdate.HasValue ? order.clientstartdate.Value.ToString("HH:MM") : "" %>">
+                                                        <input class="form-control time-picker timepicker flatpickr-input" data-val="true" data-val-length="集荷希望時間 は最大10桁で入力してください。" data-val-length-max="10" id="clientstarttime" name="clientstarttime" style="padding: 5px 12px; height: 30px;" type="time" value="<%= order.clientstartdate.HasValue ? order.clientstartdate.Value.ToString("HH:mm") : "" %>">
                                                         <span class="field-validation-valid" data-valmsg-for="clientstarttime" data-valmsg-replace="true"></span>
                                                     </div>
                                                 </div>
@@ -156,7 +156,7 @@
                                                     <div class="order-form-group">
                                                         <label class="cut-text" for="clientenddate">納品予定日</label><span class="label_required">*</span>
                                                         <span class="order-lbl-control clsDueDate">
-                                                            <input value="<%= order.clientenddate.HasValue ? order.clientenddate.Value.ToString("yyyy年mm月dd日") : ""%>" autocomplete="off" class="form-control input-sm selectdatepickerDueDate" data-val="true" data-val-date="The field 納品予定日 must be a date." data-val-required="納品予定日 を入力してください。" id="clientenddate" name="clientenddate" type="date">
+                                                            <input value="<%= order.clientenddate.HasValue ? order.clientenddate.Value.ToString("yyyy-MM-dd") : ""%>" autocomplete="off" class="form-control input-sm selectdatepickerDueDate" data-val="true" data-val-date="The field 納品予定日 must be a date." data-val-required="納品予定日 を入力してください。" id="clientenddate" name="clientenddate" type="date">
                                                             <span class="field-validation-valid" data-valmsg-for="clientenddate" data-valmsg-replace="true"></span>
                                                             <span class="field-validation-error delevery-date" style="display: none" data-valmsg-replace="true">
                                                                 <span class="field-validation-msg">「納品日」は「集荷日」以降の日付を指定して下さい。
@@ -184,10 +184,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" <%= string.IsNullOrEmpty(order.state) ? "style=\"display:none;\"" : "" %>>
+                                <div class="row" <%= !order.state.HasValue ? "style=\"display:none;\"" : "" %>>
                                     <div class="col-md-4"></div>
                                     <div class="col-md-8">
-                                        <div class="order-pallet">
+                                        <div class="order-pallet order-pallet-admin">
                                             <div class="row">
                                                 <div class="col-md-12 bg-primary" style="text-align: center;">
                                                     配車内容
@@ -231,25 +231,25 @@
                                                 <div class="col-md-3">
                                                     <div class="order-form-group">
                                                         <label for="txtLoadToPostcode">集荷日時(予定)</label>
-                                                        <input class="form-control input-sm" type="text" name="driver" value="<%= order.pickupdate.HasValue ? order.pickupdate.Value.ToString("yyyy年mm月dd日") : "" %>">
+                                                        <input class="form-control input-sm" type="date" name="pickupdate" value="<%= order.pickupdate.HasValue ? order.pickupdate.Value.ToString("yyyy-MM-dd") : "" %>">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="order-form-group">
                                                         <label for="txtLoadToPostcode"></label>
-                                                        <input class="form-control input-sm" type="text" name="trucknumber" value="<%= order.pickupdate.HasValue ? order.pickupdate.Value.ToString("HH:MM") : "" %>">
+                                                        <input class="form-control input-sm" type="time" name="pickuptime" value="<%= order.pickupdate.HasValue ? order.pickupdate.Value.ToString("HH:mm") : "" %>">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="order-form-group">
                                                         <label for="txtLoadToPostcode">納入日時(予定)</label>
-                                                        <input class="form-control input-sm" type="text" name="trucktype" value="<%= order.dropoffdate.HasValue ? order.dropoffdate.Value.ToString("yyyy年mm月dd日") : "" %>">
+                                                        <input class="form-control input-sm" type="date" name="dropoffdate" value="<%= order.dropoffdate.HasValue ? order.dropoffdate.Value.ToString("yyyy-MM-dd") : "" %>">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="order-form-group">
                                                         <label for="txtLoadToPostcode"></label>
-                                                        <input class="form-control input-sm" type="text" name="driverphonenumber" value="<%= order.dropoffdate.HasValue ? order.dropoffdate.Value.ToString("HH:MM") : "" %>">
+                                                        <input class="form-control input-sm" type="time" name="dropofftime" value="<%= order.dropoffdate.HasValue ? order.dropoffdate.Value.ToString("HH:mm") : "" %>">
                                                     </div>
                                                 </div>
                                             </div>
@@ -257,7 +257,7 @@
                                                 <div class="col-md-12">
                                                     <div class="order-form-group">
                                                         <label for="txtLoadToPostcode">備考</label>
-                                                        <input class="form-control input-sm" type="text" name="driverphonenumber" value="<%= order.note %>">
+                                                        <input class="form-control input-sm" type="text" name="note" value="<%= order.note %>">
                                                     </div>
                                                 </div>
                                             </div>
@@ -269,6 +269,7 @@
                                     </div>
                                     <div class="col-md-9">
                                         <asp:Button runat="server" ID="btnSubmit" Text="" CssClass="btn btn-primary pull-right submitorconfirm" OnClick="btnSubmit_Click" CausesValidation="False" />
+                                        <input type="hidden" id="orderState" value="<%= order.state %>"" />
                                     </div>
                                 </div>
                             </div>

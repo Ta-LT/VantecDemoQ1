@@ -123,6 +123,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="neworder.aspx" />
+    <Content Include="orders.aspx" />
     <Content Include="pricing.aspx" />
     <Content Include="relay.ashx" />
     <Content Include="DataClasses.dbml">
@@ -161,6 +162,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="showemail.aspx" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -206,6 +208,13 @@
     <Compile Include="neworder.aspx.designer.cs">
       <DependentUpon>neworder.aspx</DependentUpon>
     </Compile>
+    <Compile Include="orders.aspx.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="orders.aspx.designer.cs">
+      <DependentUpon>orders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="pricing.aspx.cs">
       <DependentUpon>pricing.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -216,6 +225,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="relay.ashx.cs">
       <DependentUpon>relay.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="showemail.aspx.cs">
+      <DependentUpon>showemail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="showemail.aspx.designer.cs">
+      <DependentUpon>showemail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
