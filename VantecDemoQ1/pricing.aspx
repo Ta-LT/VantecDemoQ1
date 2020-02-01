@@ -67,7 +67,6 @@
                 <div class="form-group" id="submit">
                     <button type="submit" class="btn btn-warning btn-lg btn-block" id="btnSubmit" style="display: none;">发注</button>
                 </div>
-                <asp:TextBox runat="server" ID="txtDebug"></asp:TextBox>
             </div>
             <div class="col-lg-8" style="height: 100%">
                 <div id="map" style="height: 100%"></div>

@@ -39,7 +39,13 @@ $(function () {
             $("#txtLoadToAdds").addClass("input-validation-error");
         }
 
-        if (!isVaildInput) return;
+        var isCourseFound = $.ajax({ url: "/coursematching.ashx?frompostcode=" + $("#txtLoadFromAdds").val() + "&topostcode=" + $("#txtLoadToAdds").val(), async: false }).responseText;
+
+        if (isCourseFound != "1") {
+            alert("不在送货范围内");
+        }
+
+        if (!isVaildInput || isCourseFound != "1") return;
 
         var request = {
             //origin: $("#txtLoadFromAdds").data("locationInfo").geocode.geometry.location,

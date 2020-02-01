@@ -113,6 +113,9 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="converter.aspx" />
+    <Content Include="newcourse.aspx" />
+    <Content Include="Scripts\converter.js" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -131,6 +134,7 @@
       <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="coursematching.ashx" />
     <None Include="DataClasses.dbml.layout">
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </None>
@@ -138,7 +142,9 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jQueryVal.js" />
+    <Content Include="Scripts\jszip.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\newcourse.js" />
     <Content Include="Scripts\neworder.js" />
     <Content Include="Scripts\pricing.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
@@ -162,6 +168,7 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\xlsx.js" />
     <Content Include="showemail.aspx" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
@@ -186,6 +193,16 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="converter.aspx.cs">
+      <DependentUpon>converter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="converter.aspx.designer.cs">
+      <DependentUpon>converter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="coursematching.ashx.cs">
+      <DependentUpon>coursematching.ashx</DependentUpon>
+    </Compile>
     <Compile Include="DataClasses.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -200,6 +217,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="newcourse.aspx.cs">
+      <DependentUpon>newcourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newcourse.aspx.designer.cs">
+      <DependentUpon>newcourse.aspx</DependentUpon>
     </Compile>
     <Compile Include="neworder.aspx.cs">
       <DependentUpon>neworder.aspx</DependentUpon>

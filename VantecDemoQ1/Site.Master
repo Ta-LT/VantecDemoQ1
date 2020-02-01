@@ -47,7 +47,7 @@
         <div class="wrapper">
             <header class="main-header">
                 <!-- Logo -->
-                <a href="/Home/" class="logo">
+                <a href="/pricing.aspx" class="logo">
                     <!-- mini logo for sidebar mini 50x50 pixels -->
                     <span class="logo-mini"><b>スぺまち</b></span>
                     <!-- logo for regular state and mobile devices -->
@@ -109,22 +109,9 @@
                             </a>
                         </li>
                         <li class="">
-                            <a href="/Tracking/">
+                            <a href="/newcourse.aspx">
                                 <i class="fa fa-address-card-o" aria-hidden="true"></i>
-                                <span>貨物状況追跡</span>
-                            </a>
-                        </li>
-                        <li class="">
-                            <a href="/Order/">
-                                <i class="fa fa-list-alt" aria-hidden="true"></i>
-                                <span>配達依頼一覧</span>
-                            </a>
-                        </li>
-
-                        <li class="">
-                            <a href="/ContactUs/Index/">
-                                <i class="fa fa-list-alt" aria-hidden="true"></i>
-                                <span>問い合わせ</span>
+                                <span>コースマスタ登录</span>
                             </a>
                         </li>
                     </ul>

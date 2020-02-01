@@ -30,6 +30,9 @@ namespace VantecDemoQ1
 		
     #region 可扩展性方法定义
     partial void OnCreated();
+    partial void Insertcourses(courses instance);
+    partial void Updatecourses(courses instance);
+    partial void Deletecourses(courses instance);
     partial void Insertorders(orders instance);
     partial void Updateorders(orders instance);
     partial void Deleteorders(orders instance);
@@ -65,11 +68,393 @@ namespace VantecDemoQ1
 			OnCreated();
 		}
 		
+		public System.Data.Linq.Table<courses> courses
+		{
+			get
+			{
+				return this.GetTable<courses>();
+			}
+		}
+		
 		public System.Data.Linq.Table<orders> orders
 		{
 			get
 			{
 				return this.GetTable<orders>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.courses")]
+	public partial class courses : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _sender;
+		
+		private string _fromname;
+		
+		private string _fromadds;
+		
+		private string _frompostcode;
+		
+		private string _toname;
+		
+		private string _toadds;
+		
+		private string _topostcode;
+		
+		private int _distance;
+		
+		private int _leadtime;
+		
+		private int _senderprice;
+		
+		private int _price;
+		
+		private System.DateTime _createdate;
+		
+		private System.DateTime _expdate;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnsenderChanging(string value);
+    partial void OnsenderChanged();
+    partial void OnfromnameChanging(string value);
+    partial void OnfromnameChanged();
+    partial void OnfromaddsChanging(string value);
+    partial void OnfromaddsChanged();
+    partial void OnfrompostcodeChanging(string value);
+    partial void OnfrompostcodeChanged();
+    partial void OntonameChanging(string value);
+    partial void OntonameChanged();
+    partial void OntoaddsChanging(string value);
+    partial void OntoaddsChanged();
+    partial void OntopostcodeChanging(string value);
+    partial void OntopostcodeChanged();
+    partial void OndistanceChanging(int value);
+    partial void OndistanceChanged();
+    partial void OnleadtimeChanging(int value);
+    partial void OnleadtimeChanged();
+    partial void OnsenderpriceChanging(int value);
+    partial void OnsenderpriceChanged();
+    partial void OnpriceChanging(int value);
+    partial void OnpriceChanged();
+    partial void OncreatedateChanging(System.DateTime value);
+    partial void OncreatedateChanged();
+    partial void OnexpdateChanging(System.DateTime value);
+    partial void OnexpdateChanged();
+    #endregion
+		
+		public courses()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sender", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string sender
+		{
+			get
+			{
+				return this._sender;
+			}
+			set
+			{
+				if ((this._sender != value))
+				{
+					this.OnsenderChanging(value);
+					this.SendPropertyChanging();
+					this._sender = value;
+					this.SendPropertyChanged("sender");
+					this.OnsenderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fromname", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string fromname
+		{
+			get
+			{
+				return this._fromname;
+			}
+			set
+			{
+				if ((this._fromname != value))
+				{
+					this.OnfromnameChanging(value);
+					this.SendPropertyChanging();
+					this._fromname = value;
+					this.SendPropertyChanged("fromname");
+					this.OnfromnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fromadds", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string fromadds
+		{
+			get
+			{
+				return this._fromadds;
+			}
+			set
+			{
+				if ((this._fromadds != value))
+				{
+					this.OnfromaddsChanging(value);
+					this.SendPropertyChanging();
+					this._fromadds = value;
+					this.SendPropertyChanged("fromadds");
+					this.OnfromaddsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_frompostcode", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string frompostcode
+		{
+			get
+			{
+				return this._frompostcode;
+			}
+			set
+			{
+				if ((this._frompostcode != value))
+				{
+					this.OnfrompostcodeChanging(value);
+					this.SendPropertyChanging();
+					this._frompostcode = value;
+					this.SendPropertyChanged("frompostcode");
+					this.OnfrompostcodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_toname", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string toname
+		{
+			get
+			{
+				return this._toname;
+			}
+			set
+			{
+				if ((this._toname != value))
+				{
+					this.OntonameChanging(value);
+					this.SendPropertyChanging();
+					this._toname = value;
+					this.SendPropertyChanged("toname");
+					this.OntonameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_toadds", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string toadds
+		{
+			get
+			{
+				return this._toadds;
+			}
+			set
+			{
+				if ((this._toadds != value))
+				{
+					this.OntoaddsChanging(value);
+					this.SendPropertyChanging();
+					this._toadds = value;
+					this.SendPropertyChanged("toadds");
+					this.OntoaddsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_topostcode", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string topostcode
+		{
+			get
+			{
+				return this._topostcode;
+			}
+			set
+			{
+				if ((this._topostcode != value))
+				{
+					this.OntopostcodeChanging(value);
+					this.SendPropertyChanging();
+					this._topostcode = value;
+					this.SendPropertyChanged("topostcode");
+					this.OntopostcodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_distance", DbType="Int NOT NULL")]
+		public int distance
+		{
+			get
+			{
+				return this._distance;
+			}
+			set
+			{
+				if ((this._distance != value))
+				{
+					this.OndistanceChanging(value);
+					this.SendPropertyChanging();
+					this._distance = value;
+					this.SendPropertyChanged("distance");
+					this.OndistanceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_leadtime", DbType="Int NOT NULL")]
+		public int leadtime
+		{
+			get
+			{
+				return this._leadtime;
+			}
+			set
+			{
+				if ((this._leadtime != value))
+				{
+					this.OnleadtimeChanging(value);
+					this.SendPropertyChanging();
+					this._leadtime = value;
+					this.SendPropertyChanged("leadtime");
+					this.OnleadtimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_senderprice", DbType="Int NOT NULL")]
+		public int senderprice
+		{
+			get
+			{
+				return this._senderprice;
+			}
+			set
+			{
+				if ((this._senderprice != value))
+				{
+					this.OnsenderpriceChanging(value);
+					this.SendPropertyChanging();
+					this._senderprice = value;
+					this.SendPropertyChanged("senderprice");
+					this.OnsenderpriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_price", DbType="Int NOT NULL")]
+		public int price
+		{
+			get
+			{
+				return this._price;
+			}
+			set
+			{
+				if ((this._price != value))
+				{
+					this.OnpriceChanging(value);
+					this.SendPropertyChanging();
+					this._price = value;
+					this.SendPropertyChanged("price");
+					this.OnpriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_createdate", DbType="DateTime NOT NULL")]
+		public System.DateTime createdate
+		{
+			get
+			{
+				return this._createdate;
+			}
+			set
+			{
+				if ((this._createdate != value))
+				{
+					this.OncreatedateChanging(value);
+					this.SendPropertyChanging();
+					this._createdate = value;
+					this.SendPropertyChanged("createdate");
+					this.OncreatedateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_expdate", DbType="DateTime NOT NULL")]
+		public System.DateTime expdate
+		{
+			get
+			{
+				return this._expdate;
+			}
+			set
+			{
+				if ((this._expdate != value))
+				{
+					this.OnexpdateChanging(value);
+					this.SendPropertyChanging();
+					this._expdate = value;
+					this.SendPropertyChanged("expdate");
+					this.OnexpdateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -203,7 +588,7 @@ namespace VantecDemoQ1
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int Id
 		{
 			get
