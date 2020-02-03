@@ -42,7 +42,7 @@ $(function () {
         var isCourseFound = $.ajax({ url: "/coursematching.ashx?frompostcode=" + $("#txtLoadFromAdds").val() + "&topostcode=" + $("#txtLoadToAdds").val(), async: false }).responseText;
 
         if (isCourseFound != "1") {
-            alert("不在送货范围内");
+            alert("納入範囲外");
         }
 
         if (!isVaildInput || isCourseFound != "1") return;
@@ -60,6 +60,9 @@ $(function () {
                 $("#priceoutput").show();
                 $("#btnSubmit").show();
                 $("#priceoutput").val(Math.round(result.routes[0].legs[0].distance.value * 27 * $("#packageNo").val() / 1000) + "円");
+            }
+            else {
+                alert("ルートが見つかりません");
             }
         });
     });

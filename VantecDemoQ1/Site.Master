@@ -68,19 +68,13 @@
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-                                    <span>姓 名</span>
+                                    <span>ユーザ名</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header"></li>
                                     <!-- Menu Footer (push test)-->
                                     <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="/Profile/Index" class="btn btn-default btn-flat">ユーザー情報編集</a>
-                                        </div>
-                                        <div class="pull-right">
-                                            <a href="/Account/Logout" class="btn btn-default btn-flat">ログアウト</a>
-                                        </div>
                                     </li>
                                 </ul>
                             </li>
@@ -99,19 +93,19 @@
                     <ul class="sidebar-menu vtMenu-left" data-widget="tree">
                         <li class="">
                             <a href="/pricing.aspx">
-                                <i class="fa fa-home"></i><span>料金计算</span>
+                                <i class="fa fa-home"></i><span>料金計算</span>
                             </a>
                         </li>
                         <li class="">
                             <a href="/orders.aspx">
                                 <i class="fa fa-list-alt" aria-hidden="true"></i>
-                                <span>订单列表</span>
+                                <span>見積一覧</span>
                             </a>
                         </li>
                         <li class="">
                             <a href="/newcourse.aspx">
                                 <i class="fa fa-address-card-o" aria-hidden="true"></i>
-                                <span>コースマスタ登录</span>
+                                <span>コースマスタ</span>
                             </a>
                         </li>
                     </ul>

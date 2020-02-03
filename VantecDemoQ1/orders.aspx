@@ -27,7 +27,7 @@
                             <asp:BoundField DataField="dropoffdate" HeaderText="納入日時(予定)" ReadOnly="True" SortExpression="dropoffdate" />
                             <asp:TemplateField ShowHeader="False">
                                 <ItemTemplate>
-                                    <asp:Button ID="Button1" runat="server" CausesValidation="False" CommandArgument='<%# Eval("Id") %>' Text="选取" OnClick="Button1_Click" />
+                                    <asp:Button ID="Button1" runat="server" CausesValidation="False" CommandArgument='<%# Eval("Id") %>' Text="選択" OnClick="Button1_Click" />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

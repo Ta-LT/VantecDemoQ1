@@ -23,21 +23,24 @@ namespace VantecDemoQ1
             {
                 if (order.state.Value == 1)
                 {
-                    btnSubmit.Text = "确认订单";
+                    btnSubmit.Text = "送信";
                 }
                 else
                 {
-                    btnSubmit.Text = "发送邮件给用户";
+                    btnSubmit.Text = "送信";
                 }
             }
             else
             {
-                btnSubmit.Text = "提交给VTC担当者";
+                btnSubmit.Text = "送信";
             }
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+            order.fromadds = Request["fromadds"];
+            order.toadds = Request["toadds"];
+
             order.length = int.Parse(Request["length"]);
             order.width = int.Parse(Request["width"]);
             order.height = int.Parse(Request["height"]);

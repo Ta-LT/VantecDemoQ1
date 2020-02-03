@@ -1,4 +1,7 @@
 ﻿var lastRowIndex = 0;
+var map;
+var geocoder;
+var directionsService;
 $(function () {
     $("#fileinput").change(function () {
         $("#error_screen_msg").text("");
@@ -32,33 +35,78 @@ $(function () {
         addnewcourserow();
     });
     $("#" + btnSubmitId).click(function () {
-        var isInputValid = true;
-        $("#courserows input:text").removeClass("input-validation-error");
-        $.each($("#courserows input:text"), function (index, item) {
-            var $item = $(item);
-            if (!$item.val()) {
-                isInputValid = false;
-                $item.addClass("input-validation-error");
-            }
-            if ($item.attr("data-itemtype") == "postcode") {
-                if (!/\d{3}-\d{4}/.test($item.val()) || $item.val().length != 8) {
-                    isInputValid = false;
-                    $item.addClass("input-validation-error");
-                }
-            }
-            if ($item.attr("data-itemtype") == "number") {
-                if (!isNaN(parseInt($item.val()))) {
-                    $item.val(parseInt($item.val()));
-                }
-                else {
-                    isInputValid = false;
-                    $item.addClass("input-validation-error");
+        if (!validate() || $("#courserows input:text").length == 0) return false;
+    });
+    $("#btnGetDistance").click(function () {
+        validate();
+        $.each($("#courserows input:text[data-dataname=distance]"), function (index, item) {
+            if (!$(item).val()) {
+                var parentRow = $(item).parents("div.row").first();
+                var fromPostcode = parentRow.find("input:text[data-dataname=frompostcode]").val();
+                var toPostcode = parentRow.find("input:text[data-dataname=topostcode]").val();
+                var txtPrice = parentRow.find("input:text[data-dataname=senderprice]");
+                var distance = parentRow.find("input:text[data-dataname=distance]");
+                if (fromPostcode && toPostcode) {
+                    var request = {
+                        origin: fromPostcode,
+                        destination: toPostcode,
+                        travelMode: 'DRIVING'
+                    };
+                    directionsService.route(request, function (result, status) {
+                        if (status == 'OK') {
+                            distance.val(Math.round(result.routes[0].legs[0].distance.value / 1000));
+                            distance.removeClass("input-validation-error");
+                            if (txtPrice.val() == "") {
+                                txtPrice.val(Math.round(result.routes[0].legs[0].distance.value * 27 / 1000));
+                                txtPrice.removeClass("input-validation-error");
+                            }
+                        }
+                        else {
+                            distance.val("ルートが見つかりません");
+                        }
+                    });
                 }
             }
         });
-        if (!isInputValid || $("#courserows input:text").length == 0) return false;
     });
 })
+
+function validate() {
+    var isInputValid = true;
+    $("#courserows input:text").removeClass("input-validation-error");
+    $.each($("#courserows input:text"), function (index, item) {
+        var $item = $(item);
+        if (!$item.val()) {
+            isInputValid = false;
+            $item.addClass("input-validation-error");
+        }
+        if ($item.attr("data-itemtype") == "postcode") {
+            if (!/\d{3}-\d{4}/.test($item.val()) || $item.val().length != 8) {
+                isInputValid = false;
+                $item.addClass("input-validation-error");
+            }
+        }
+        if ($item.attr("data-itemtype") == "number") {
+            if (!isNaN(parseInt($item.val()))) {
+                $item.val(parseInt($item.val()));
+            }
+            else {
+                isInputValid = false;
+                $item.addClass("input-validation-error");
+            }
+        }
+    });
+    return isInputValid;
+}
+
+function initMap() {
+    geocoder = new google.maps.Geocoder();
+    directionsService = new google.maps.DirectionsService();
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 35.68251662989272, lng: 139.7651388298927 },
+        zoom: 10
+    });
+}
 
 function addnewcourserow(coursedata) {
     var allTextFilled = true;
@@ -82,18 +130,21 @@ function addnewcourserow(coursedata) {
         $("#topcourserow input:text[data-dataname=toadds]").val(coursedata["納入先住所"]);
         $("#topcourserow input:text[data-dataname=topostcode]").val(coursedata["納入先郵便番号"]);
 
-        var distance = coursedata["距離(公里)"] ? coursedata["距離(公里)"] : Math.floor((Math.random() * 100) + 11);
+        //var distance = coursedata["距離(km)"] ? coursedata["距離(km)"] : Math.floor((Math.random() * 100) + 11);
+        //$("#topcourserow input:text[data-dataname=distance]").val(distance);
+        //$("#topcourserow input:text[data-dataname=senderprice]").val(coursedata["原価(円)"] ? coursedata["原価(円)"] : distance * 70);
+        var distance = coursedata["距離(km)"] ? coursedata["距離(km)"] : "";
         $("#topcourserow input:text[data-dataname=distance]").val(distance);
         $("#topcourserow input:text[data-dataname=senderprice]").val(coursedata["原価(円)"] ? coursedata["原価(円)"] : distance * 70);
         $("#topcourserow input:text").removeClass("input-validation-error");
     }
     else {
-        if ($("#topcourserow input:text[data-dataname=distance]").val() == "") {
-            $("#topcourserow input:text[data-dataname=distance]").val(Math.floor((Math.random() * 100) + 11));
-        }
-        if ($("#topcourserow input:text[data-dataname=senderprice]").val() == "") {
-            $("#topcourserow input:text[data-dataname=senderprice]").val($("#topcourserow input:text[data-dataname=distance]").val() * 70);
-        }
+        //if ($("#topcourserow input:text[data-dataname=distance]").val() == "") {
+        //    $("#topcourserow input:text[data-dataname=distance]").val(Math.floor((Math.random() * 100) + 11));
+        //}
+        //if ($("#topcourserow input:text[data-dataname=senderprice]").val() == "") {
+        //    $("#topcourserow input:text[data-dataname=senderprice]").val($("#topcourserow input:text[data-dataname=distance]").val() * 70);
+        //}
     }
     var newcorserow = $("#topcourserow > div.row").clone(false);
     $.each(newcorserow.find("input:text[data-dataname]"), function (index, item) {
