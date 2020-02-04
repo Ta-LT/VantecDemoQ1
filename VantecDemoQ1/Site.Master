@@ -108,6 +108,12 @@
                                 <span>コースマスタ</span>
                             </a>
                         </li>
+                        <li class="">
+                            <a href="/courselist.aspx">
+                                <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                                <span>Course list</span>
+                            </a>
+                        </li>
                     </ul>
                 </section>
                 <!-- /.sidebar -->

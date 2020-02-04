@@ -44,6 +44,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FarPoint.Web.SpreadJ, Version=10.0.4010.2013, Culture=neutral, PublicKeyToken=a5fa960294d899e7, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -114,6 +115,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Site.css" />
     <Content Include="converter.aspx" />
+    <Content Include="courselist.aspx" />
     <Content Include="newcourse.aspx" />
     <Content Include="Scripts\converter.js" />
     <Content Include="Default.aspx" />
@@ -199,6 +201,13 @@
     </Compile>
     <Compile Include="converter.aspx.designer.cs">
       <DependentUpon>converter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="courselist.aspx.cs">
+      <DependentUpon>courselist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="courselist.aspx.designer.cs">
+      <DependentUpon>courselist.aspx</DependentUpon>
     </Compile>
     <Compile Include="coursematching.ashx.cs">
       <DependentUpon>coursematching.ashx</DependentUpon>
@@ -293,6 +302,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
