@@ -40,7 +40,7 @@ $(function () {
     $("#btnGetDistance").click(function () {
         validate();
         $.each($("#courserows input:text[data-dataname=distance]"), function (index, item) {
-            if (!$(item).val()) {
+            if (!$(item).val() || $(item).val() == "ルートが見つかりません") {
                 var parentRow = $(item).parents("div.row").first();
                 var fromPostcode = parentRow.find("input:text[data-dataname=frompostcode]").val();
                 var toPostcode = parentRow.find("input:text[data-dataname=topostcode]").val();
@@ -136,6 +136,9 @@ function addnewcourserow(coursedata) {
         var distance = coursedata["距離(km)"] ? coursedata["距離(km)"] : "";
         $("#topcourserow input:text[data-dataname=distance]").val(distance);
         $("#topcourserow input:text[data-dataname=senderprice]").val(coursedata["原価(円)"] ? coursedata["原価(円)"] : distance * 70);
+        if ($("#topcourserow input:text[data-dataname=senderprice]").val() == "0") {
+            $("#topcourserow input:text[data-dataname=senderprice]").val("");
+        }
         $("#topcourserow input:text").removeClass("input-validation-error");
     }
     else {
