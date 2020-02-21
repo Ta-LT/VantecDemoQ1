@@ -18,8 +18,8 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44318</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -44,7 +44,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FarPoint.Web.SpreadJ, Version=10.0.4010.2013, Culture=neutral, PublicKeyToken=a5fa960294d899e7, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -113,9 +112,10 @@
     </Content>
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\gc.spread.sheets.13.0.0.css" />
     <Content Include="Content\Site.css" />
     <Content Include="converter.aspx" />
-    <Content Include="courselist.aspx" />
+    <Content Include="courselistjs.aspx" />
     <Content Include="newcourse.aspx" />
     <Content Include="Scripts\converter.js" />
     <Content Include="Default.aspx" />
@@ -142,6 +142,9 @@
     </None>
     <Content Include="Scripts\Admin\iCheck\square\blue.png" />
     <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\courselistJS.js" />
+    <Content Include="Scripts\excelJS\gc.spread.sheets.all.13.0.0.min.js" />
+    <Content Include="Scripts\excelJS\gc.spread.sheets.resources.zh.13.0.0.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jQueryVal.js" />
     <Content Include="Scripts\jszip.js" />
@@ -202,12 +205,12 @@
     <Compile Include="converter.aspx.designer.cs">
       <DependentUpon>converter.aspx</DependentUpon>
     </Compile>
-    <Compile Include="courselist.aspx.cs">
-      <DependentUpon>courselist.aspx</DependentUpon>
+    <Compile Include="courselistjs.aspx.cs">
+      <DependentUpon>courselistjs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="courselist.aspx.designer.cs">
-      <DependentUpon>courselist.aspx</DependentUpon>
+    <Compile Include="courselistjs.aspx.designer.cs">
+      <DependentUpon>courselistjs.aspx</DependentUpon>
     </Compile>
     <Compile Include="coursematching.ashx.cs">
       <DependentUpon>coursematching.ashx</DependentUpon>
