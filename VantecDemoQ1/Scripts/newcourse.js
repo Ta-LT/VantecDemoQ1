@@ -15,7 +15,7 @@ $(function () {
                 workbook.SheetNames.forEach(function (sheetName) {
                     var XL_row_object = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
                     //var json_object = JSON.stringify(XL_row_object);
-                    for (let i = XL_row_object.length - 1; i--; i >= 0) {
+                    for (let i = XL_row_object.length - 1; i >= 0; i--) {
                         addnewcourserow(XL_row_object[i]);
                     }
                     console.log(XL_row_object);

@@ -105,13 +105,13 @@
                         <li class="">
                             <a href="/newcourse.aspx">
                                 <i class="fa fa-address-card-o" aria-hidden="true"></i>
-                                <span>コースマスタ</span>
+                                <span>コース登録</span>
                             </a>
                         </li>
                         <li class="">
                             <a href="/courselist.aspx">
                                 <i class="fa fa-address-card-o" aria-hidden="true"></i>
-                                <span>Course list</span>
+                                <span>コースマスタ</span>
                             </a>
                         </li>
                     </ul>

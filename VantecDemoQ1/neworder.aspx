@@ -63,7 +63,7 @@
                                                 <div class="col-md-12">
                                                     <div class="order-form-group">
                                                         <label for="packagetype">パレット種類</label>
-                                                        <input class="form-control input-sm" type="text" id="packagetype" name="packagetype" value="<%= order.packagetype == "1" ? "パレット" : "その他" %>" readonly="readonly">
+                                                        <input class="form-control input-sm" type="text" id="packagetype" name="packagetype" value="<%= order.packagetype.IndexOf("1") > -1 ? "パレット" : "その他" %>" readonly="readonly">
                                                     </div>
                                                 </div>
                                             </div>
